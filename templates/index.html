@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Recipe Manager</h1>
+    <a href="/add">Add New Recipe</a>
+
+    <h2>All Recipes</h2>
+    <ul>
+        {% for recipe in recipes %}
+        <li>
+            <strong>{{ recipe[1] }}</strong> <br>
+            <em>Ingredients:</em> {{ recipe[2] }} <br>
+            <em>Instructions:</em> {{ recipe[3] }} <br>
+            <a href="/delete/{{ recipe[0] }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
